@@ -1,0 +1,7 @@
+{
+  "name": "srvcam",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
