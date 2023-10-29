@@ -3,67 +3,73 @@
     <ion-title>
       Mex Enterprise
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openFirstMenu()">
+        <ion-icon name="home" style="color: #16A085;"></ion-icon>
+      </ion-button>
+      <ion-button (click)="Camera()">
+        <ion-icon name="camera" style=" color: #D50F25;"></ion-icon>
+      </ion-button>
+      <ion-button (click)="patientHistory()">
+        <ion-icon name="document" style="color: #3369E8;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div style="display: flex; flex-wrap: wrap;">
- 
-    <div style="flex: 1;">
+  <div class="video-form-container">
+    <div class="video-container">
       <video #videoElement width="640" height="480" autoplay></video>
-      <canvas #canvas width="640" height="480" style="display: none;"></canvas>
-      <button (click)="capture()">Capture Picture</button>
+      <canvas #canvas width="640" height="480" style="display:none;"></canvas>
+      <button (click)="capture()" class="capture-button" style="display: flex; align-items: center;">
+        <ion-icon name="camera" style="font-size: 1.5rem; color: white; margin-right: 5px;"></ion-icon>
+        Capture Picture
+      </button>
+      
+      
     </div>
-    
-   
-    <div style="flex: 1;">
-      <ion-card>
+
+    <ion-card class="patient-details" style="width: 100%;">
+      <ion-card-header>
+        <ion-card-title>Patient Information</ion-card-title>
+      </ion-card-header>
+      <form [formGroup]="patientInfoForm">
         <ion-card-content>
-          <ion-item>
-            <ion-label position="floating">Name</ion-label>
-            <ion-input></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Age</ion-label>
-            <ion-input type="number"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Address</ion-label>
-            <ion-input></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Phone</ion-label>
-            <ion-input type="tel"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Medical History</ion-label>
-            <ion-textarea></ion-textarea>
-          </ion-item>
-          <ion-button expand="full" (click)="submitPatientForm()">Submit</ion-button>
+          <ion-list lines="full">
+            <ion-item>
+              <ion-label position="stacked" style="font-size: 14px;">Patient Name</ion-label>
+              <ion-input type="text" placeholder="Enter patient name" style="font-size: 14px;"
+                formControlName="patientName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked" style="font-size: 14px;">Age</ion-label>
+              <ion-input type="number" placeholder="Enter age" style="font-size: 14px;"
+                formControlName="age"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked" style="font-size: 14px;">Gender</ion-label>
+              <ion-select placeholder="Select gender" formControlName="gender" style="font-size: 14px;">
+                <ion-select-option value="male" style="font-size: 14px;" label="Male">Male</ion-select-option>
+                <ion-select-option value="female" style="font-size: 14px;" label="Female">Female</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked" style="font-size: 14px;">Phone</ion-label>
+              <ion-input type="tel" placeholder="Enter phone number" formControlName="mobile" style="font-size: 14px;"
+                onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked" style="font-size: 14px;">Medical Condition</ion-label>
+              <ion-textarea rows="3" placeholder="Enter medical condition" formControlName="medicalCondition"
+                style="font-size: 14px;"></ion-textarea>
+            </ion-item>
+          </ion-list>
         </ion-card-content>
-      </ion-card>
-    </div>
+      </form>
+      <ion-button expand="full" (click)="submitPatientForm()">Save</ion-button>
+    </ion-card>
   </div>
+
+
 </ion-content>
-
-
-
-<ion-footer style="position: fixed; bottom: 0; width: 100%;">
-  <ion-toolbar class="ion-text-center">
-    <div style="display: flex;justify-content: center;">
-      <div>
-        <small><strong style="color:blue">MEX ENTERPRISE</strong></small>&nbsp;
-      </div>
-      <div>
-        <small><strong> | EMAIL :</strong> info@company.com |</small>&nbsp;
-      </div>
-      <div>
-        <small><strong> PHONE: </strong> +123-456-7890 </small>
-      </div>
-    </div>
-  </ion-toolbar>
-</ion-footer>

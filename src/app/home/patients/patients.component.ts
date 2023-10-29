@@ -1,4 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Patient } from 'src/app/models/patient.model';
 import { Patientrepository } from 'src/app/repositories/patientrepository';
 
@@ -11,9 +12,10 @@ import { Patientrepository } from 'src/app/repositories/patientrepository';
 export class PatientsComponent  implements OnInit {
 
   public patients: Patient[] = [];
-  patientHistory = patientHistory;
+  patientHistoryDetails = patientHistory;
 
-  constructor(private patientRepo:Patientrepository) { 
+  constructor(private patientRepo:Patientrepository,
+    private router:Router) { 
     this.getAllPatients();
   }
 
@@ -25,6 +27,18 @@ export class PatientsComponent  implements OnInit {
     console.log("Fetching all patient data...")
     this.patients = await this.patientRepo.getPatients();
     console.log(this.patients);
+  }
+
+  openFirstMenu() {
+    this.router.navigate(['/home']);
+  }
+
+  Camera() {
+    this.router.navigate(['/home/camera']);
+  }
+
+  patientHistory(){
+    this.router.navigate(['/home/patients']);
   }
 
 }

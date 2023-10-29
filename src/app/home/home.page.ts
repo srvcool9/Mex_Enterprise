@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
 
 
   openFirstMenu() {
-
+    this.router.navigate(['/home']);
   }
 
   Camera() {

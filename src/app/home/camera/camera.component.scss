@@ -1,0 +1,38 @@
+.uppercase {
+    text-transform: uppercase;
+    color:#007BFF;
+}
+
+.capture-button {
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .capture-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .video-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Adjust this based on your desired alignment */
+  }
+  
+  .video-container {
+    flex: 1;
+    margin-right: 10px; /* Adjust the margin to create space between video and form */
+  }
+  
+  .form-container {
+    flex: 1;
+  }
+  

@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-camera',
@@ -12,11 +14,15 @@ export class CameraComponent implements AfterViewInit, OnInit {
   private canvasElement: any;
   private context: any;
   private video: any;
+  patientInfoForm: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder,
+    private router: Router) { }
 
-  ngOnInit() { }
-  
+  ngOnInit() {
+    this.createForm();
+  }
+
   ngAfterViewInit(): void {
     this.video = this.videoElement.nativeElement;
     this.canvasElement = this.canvas.nativeElement;
@@ -38,8 +44,31 @@ export class CameraComponent implements AfterViewInit, OnInit {
 
   }
 
-  submitPatientForm(){
-    
+  createForm() {
+    this.patientInfoForm = this.fb.group({
+      patientName: [''],
+      age: [],
+      gender: [],
+      mobile: [],
+      medicalCondition: []
+    })
+  }
+
+  submitPatientForm() {
+    console.log(JSON.stringify(this.patientInfoForm.value));
+  }
+
+
+  openFirstMenu() {
+    this.router.navigate(['/home']);
+  }
+
+  Camera() {
+    this.router.navigate(['/home/camera']);
+  }
+
+  patientHistory() {
+    this.router.navigate(['/home/patients']);
   }
 
 }
