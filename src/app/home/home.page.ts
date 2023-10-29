@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
   }
 
   patientHistory(){
-
+    this.router.navigate(['/home/patients']);
   }
 
 }

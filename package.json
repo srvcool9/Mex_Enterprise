@@ -11,7 +11,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "ionic:serve:before": "npm run copy:sql:wasm",
-    "copy:sql:wasm": "copyfiles -u 3 node_modules/sql.js/dist/sql-wasm.wasm src/assets"
+    "copy:sql:wasm": "copyfiles -u 3 node_modules/sql.js/dist/sql-wasm.wasm src/assets",
+    "electron:install": "cd electron && npm install && cd ..",
+    "electron:prepare": "npm run remove:sql:wasm && ng build && npx cap sync @capacitor-community/electron && npx cap copy @capacitor-community/electron",
+    "electron:start": "npm run electron:prepare && cd electron && npm run electron:start"
   },
   "private": true,
   "dependencies": {
@@ -31,10 +34,11 @@
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic-native/sqlite": "^5.36.0",
-    "@ionic/pwa-elements": "^3.2.2",
     "@ionic/angular": "^7.0.0",
+    "@ionic/pwa-elements": "^3.2.2",
     "@ng-toolkit/init": "^8.0.3",
     "cordova-sqlite-storage": "^6.1.0",
+    "electron": "^27.0.2",
     "ionicons": "^7.0.0",
     "jeep-sqlite": "^2.5.3",
     "rxjs": "~7.8.0",
