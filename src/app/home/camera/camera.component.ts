@@ -38,4 +38,8 @@ export class CameraComponent implements AfterViewInit, OnInit {
 
   }
 
+  submitPatientForm(){
+    
+  }
+
 }

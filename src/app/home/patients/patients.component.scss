@@ -1,0 +1,36 @@
+.table {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.header-row {
+    position: sticky;
+    top: 0;
+    color: #007BFF;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.header {
+    text-align: center;
+}
+
+.input-wrapper{
+   
+}
+
+ion-label {
+    display: block;
+    text-align: center;
+    padding: 5px;
+}
+
+.pat-title {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    background-color: aliceblue;
+}

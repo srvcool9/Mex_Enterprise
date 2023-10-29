@@ -24,8 +24,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['/home/camera']);
   }
 
-  patientHistory() {
-
+  patientHistory(){
+    this.router.navigate(['/home/patients']);
   }
 
 }
