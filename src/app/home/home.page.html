@@ -13,16 +13,38 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid>
+  <ion-grid class="ion-text-center" style="margin-top: 10%;">
     <ion-row>
-      <ion-button expand="block" (click)="openFirstMenu()">Home</ion-button>
-      <ion-button expand="block" (click)="Camera()">Camera</ion-button>
-      <ion-button expand="block" (click)="patientHistory()">Patient History</ion-button>
+      <ion-col size="4" (click)="openFirstMenu()">
+        <ion-card class="hover-card" style="height: 200px;">
+          <div class="icon-background icon-bg" style="background-color: #E7F5F3;">
+            <ion-icon name="home" class="centered-icon" style="font-size: 4em; color: #16A085;"></ion-icon>
+          </div>
+          <ion-card-content>
+            <ion-card-title class="card-title">Home</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4" (click)="Camera()">
+        <ion-card class="hover-card" style="height: 200px;">
+          <div class="icon-background icon-bg" style="background-color: #FBE7E9;">
+            <ion-icon name="camera" class="centered-icon" style="font-size: 4em; color: #D50F25;"></ion-icon>
+          </div>
+          <ion-card-content>
+            <ion-card-title class="card-title">Camera</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4" (click)="patientHistory()">
+        <ion-card class="hover-card" style="height: 200px;">
+          <div class="icon-background icon-bg" style="background-color: #EAF0FD;">
+            <ion-icon name="document" class="centered-icon" style="font-size: 4em; color: #3369E8;"></ion-icon>
+          </div>
+          <ion-card-content>
+            <ion-card-title class="card-title">Patient History</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
-
-  <!-- <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div> -->
 </ion-content>

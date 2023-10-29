@@ -10,21 +10,21 @@ export class HomePage implements OnInit {
 
 
 
-  constructor(private router:Router) {}
+  constructor(private router: Router) { }
   ngOnInit(): void {
-   
-  }
- 
-
-  openFirstMenu(){
 
   }
 
-  Camera(){
-        this.router.navigate(['/home/camera']);
+
+  openFirstMenu() {
+
   }
 
-  patientHistory(){
+  Camera() {
+    this.router.navigate(['/home/camera']);
+  }
+
+  patientHistory() {
 
   }
 
