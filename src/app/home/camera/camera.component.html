@@ -8,14 +8,14 @@
 
 <ion-content>
   <div style="display: flex; flex-wrap: wrap;">
-    <!-- Camera View -->
+ 
     <div style="flex: 1;">
       <video #videoElement width="640" height="480" autoplay></video>
       <canvas #canvas width="640" height="480" style="display: none;"></canvas>
       <button (click)="capture()">Capture Picture</button>
     </div>
     
-    <!-- Patient Form -->
+   
     <div style="flex: 1;">
       <ion-card>
         <ion-card-content>
@@ -43,7 +43,6 @@
             <ion-label position="floating">Medical History</ion-label>
             <ion-textarea></ion-textarea>
           </ion-item>
-          <!-- Add more input fields as needed -->
           <ion-button expand="full" (click)="submitPatientForm()">Submit</ion-button>
         </ion-card-content>
       </ion-card>
