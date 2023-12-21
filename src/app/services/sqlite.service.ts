@@ -15,7 +15,9 @@ export class SqliteService {
   sqlitePlugin: any;
   native: boolean = false;
 
-  constructor() { }
+  constructor() {
+    this.initializePlugin();
+   }
 
 
   /**

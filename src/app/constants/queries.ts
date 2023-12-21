@@ -1,14 +1,13 @@
 export const createTablePatient: string = `
 DROP TABLE IF EXISTS patients;
 CREATE TABLE IF NOT EXISTS patients (
-  PatientId INTEGER PRIMARY KEY NOT NULL,
-  PatientName TEXT NOT NULL
-);`;
-
-export const createTableImages: string = `
-DROP TABLE IF EXISTS images;
-CREATE TABLE IF NOT EXISTS images (
-  ImageId INTEGER PRIMARY KEY NOT NULL,
-  ImageName TEXT NOT NULL,
-  Path TEXT  NULL
+  PatientId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  FirstName TEXT NOT NULL,
+  LastName TEXT NOT NULL,
+  Gender TEXT NOT NULL,
+  DateOfBirth TEXT NOT NULL,
+  MobileNo INTEGER NOT NULL,
+  Address TEXT NOT NULL,
+  Image BLOB NULL,
+  CreatedOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );`;

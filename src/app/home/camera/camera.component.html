@@ -21,7 +21,9 @@
   <div class="video-form-container">
     <div class="video-container">
       <video #videoElement width="640" height="480" autoplay></video>
-      <canvas #canvas width="640" height="480" style="display:none;"></canvas>
+      <button (click)="startRecording()">Start Recording</button>
+      <button (click)="stopRecording()">Stop Recording and Save</button>
+      <canvas #canvas width="640" height="480"></canvas>
       <button (click)="capture()" class="capture-button" style="display: flex; align-items: center;">
         <ion-icon name="camera" style="font-size: 1.5rem; color: white; margin-right: 5px;"></ion-icon>
         Capture Picture
@@ -39,29 +41,34 @@
           <ion-list lines="full">
             <ion-item>
               <ion-label position="stacked" style="font-size: 14px;">Patient Name</ion-label>
-              <ion-input type="text" placeholder="Enter patient name" style="font-size: 14px;"
-                formControlName="patientName"></ion-input>
+              <ion-input type="text" placeholder="Enter First Name" style="font-size: 14px;"
+                formControlName="firstName"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked" style="font-size: 14px;">Age</ion-label>
-              <ion-input type="number" placeholder="Enter age" style="font-size: 14px;"
-                formControlName="age"></ion-input>
+              <ion-label position="stacked" style="font-size: 14px;">Patient Name</ion-label>
+              <ion-input type="text" placeholder="Enter Last Name" style="font-size: 14px;"
+                formControlName="lastName"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="stacked" style="font-size: 14px;">Gender</ion-label>
-              <ion-select placeholder="Select gender" formControlName="gender" style="font-size: 14px;">
+              <ion-select placeholder="Select Gender" formControlName="gender" style="font-size: 14px;">
                 <ion-select-option value="male" style="font-size: 14px;" label="Male">Male</ion-select-option>
                 <ion-select-option value="female" style="font-size: 14px;" label="Female">Female</ion-select-option>
               </ion-select>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked" style="font-size: 14px;">Phone</ion-label>
-              <ion-input type="tel" placeholder="Enter phone number" formControlName="mobile" style="font-size: 14px;"
+              <ion-label position="stacked" style="font-size: 14px;">Date Of Birth </ion-label>
+              <ion-input type="date" placeholder="Enter dob" style="font-size: 14px;"
+                formControlName="dateOfBirth"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked" style="font-size: 14px;">Mobile</ion-label>
+              <ion-input type="tel" placeholder="Enter Mobile" formControlName="mobile" style="font-size: 14px;"
                 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked" style="font-size: 14px;">Medical Condition</ion-label>
-              <ion-textarea rows="3" placeholder="Enter medical condition" formControlName="medicalCondition"
+              <ion-label position="stacked" style="font-size: 14px;">Address</ion-label>
+              <ion-textarea rows="3" placeholder="Enter Address" formControlName="address"
                 style="font-size: 14px;"></ion-textarea>
             </ion-item>
           </ion-list>

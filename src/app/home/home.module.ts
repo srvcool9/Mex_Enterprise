@@ -8,6 +8,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { Patientrepository } from '../repositories/patientrepository';
 import { PatientsComponent } from './patients/patients.component';
 import { CameraComponent } from './camera/camera.component';
+import { Imagerepository } from '../repositories/imagerepository';
+
 
 
 @NgModule({
@@ -19,6 +21,6 @@ import { CameraComponent } from './camera/camera.component';
     HomePageRoutingModule
   ],
   declarations: [HomePage, PatientsComponent, CameraComponent],
-  providers: [Patientrepository]
+  providers: [Patientrepository,Imagerepository]
 })
 export class HomePageModule { }

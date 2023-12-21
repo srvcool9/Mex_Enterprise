@@ -26,20 +26,20 @@
     <ion-card-content class="scrollable-content">
       <ion-list lines="full" class="table">
         <ion-item class="header-row">
-          <ion-label class="header uppercase">Visit Date</ion-label>
-          <ion-label class="header uppercase">Doctor</ion-label>
-          <ion-label class="header uppercase">Diagnosis</ion-label>
-          <ion-label class="header uppercase">Medication</ion-label>
-          <ion-label class="header uppercase">Notes</ion-label>
+          <ion-label class="header uppercase">Patient Id</ion-label>
+          <ion-label class="header uppercase">Patient Name</ion-label>
+          <ion-label class="header uppercase">Gender</ion-label>
+          <ion-label class="header uppercase">Date Of Birth</ion-label>
+          <ion-label class="header uppercase">Phone</ion-label>
         </ion-item>
 
 
         <ion-item class="data-row" *ngFor="let entry of patientHistoryDetails" style="font-size: 14px;">
-          <ion-label>{{ entry.visitDate }}</ion-label>
-          <ion-label>{{ entry.doctor }}</ion-label>
-          <ion-label>{{ entry.diagnosis }}</ion-label>
-          <ion-label>{{ entry.medication }}</ion-label>
-          <ion-label>{{ entry.notes }}</ion-label>
+          <ion-label>{{ entry.PatientId }}</ion-label>
+          <ion-label>{{ entry.FirstName }}{{ entry.LastName }}</ion-label>
+          <ion-label>{{ entry.Gender }}</ion-label>
+          <ion-label>{{ entry.DateOfBirth }}</ion-label>
+          <ion-label>{{ entry.MobileNo }}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
