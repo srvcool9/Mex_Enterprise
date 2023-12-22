@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Patient } from 'src/app/models/patient.model';
 import { Patientrepository } from 'src/app/repositories/patientrepository';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-camera',
@@ -12,23 +13,25 @@ import { Patientrepository } from 'src/app/repositories/patientrepository';
 export class CameraComponent implements AfterViewInit, OnInit {
   @ViewChild('videoElement') videoElement: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
-
+  activeButton: string;
   private canvasElement: any;
   private context: any;
   private video: any;
-  imageBase64:string;
+  imageBase64: string;
   patientInfoForm: FormGroup;
   mediaRecorder: MediaRecorder;
   recordedChunks: Blob[] = [];
-   recoredVideoBlob:Blob;
-   capturedImageBlob:Blob;
+  recoredVideoBlob: Blob;
+  capturedImageBlob: Blob;
 
   constructor(private fb: FormBuilder,
-    private patientRepo:Patientrepository,
-    private router: Router) { }
+    private patientRepo: Patientrepository,
+    private router: Router,
+    private dataSharing:DataSharingService) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.createForm();
+    this.dataSharing.setActiveButton('camera');
   }
 
   ngAfterViewInit(): void {
@@ -38,7 +41,7 @@ export class CameraComponent implements AfterViewInit, OnInit {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then((stream) => {
-          this.video.srcObject = stream;  
+          this.video.srcObject = stream;
         })
         .catch((error) => {
           console.error('Error accessing media devices:', error);
@@ -55,7 +58,7 @@ export class CameraComponent implements AfterViewInit, OnInit {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then((stream) => {
-          this.video.srcObject = stream;  
+          this.video.srcObject = stream;
         })
         .catch((error) => {
           console.error('Error accessing media devices:', error);
@@ -65,15 +68,15 @@ export class CameraComponent implements AfterViewInit, OnInit {
     this.canvasElement.height = this.video.videoHeight;
     this.context.drawImage(this.video, 0, 0, this.canvasElement.width, this.canvasElement.height);
     const capturedImage = this.canvasElement.toDataURL('image/png');
-    
+
     this.canvasElement.toBlob(async (blob) => {
       if (blob) {
-        this.capturedImageBlob=blob;
-        this.imageBase64= await this.convertBlobToBase64(blob)
+        this.capturedImageBlob = blob;
+        this.imageBase64 = await this.convertBlobToBase64(blob)
       }
     }, 'image/png');
-    
-    
+
+
     // Optionally, you can create an <img> element to display the captured image or send it to a server
     // const imgElement = document.createElement('img');
     // imgElement.src = capturedImage;
@@ -94,21 +97,21 @@ export class CameraComponent implements AfterViewInit, OnInit {
     }, 100);
   }
 
-  startRecording(){
+  startRecording() {
     navigator.mediaDevices.getUserMedia({ video: true })
-    .then((stream) => {
-      this.videoElement.nativeElement.srcObject = stream;
-      this.mediaRecorder = new MediaRecorder(stream);
-      this.mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          this.recordedChunks.push(event.data);
-        }
-      };
-      this.mediaRecorder.start();
-    })
-    .catch((error) => {
-      console.error('Error accessing the camera: ', error);
-    });
+      .then((stream) => {
+        this.videoElement.nativeElement.srcObject = stream;
+        this.mediaRecorder = new MediaRecorder(stream);
+        this.mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            this.recordedChunks.push(event.data);
+          }
+        };
+        this.mediaRecorder.start();
+      })
+      .catch((error) => {
+        console.error('Error accessing the camera: ', error);
+      });
   }
 
   stopRecording() {
@@ -146,17 +149,17 @@ export class CameraComponent implements AfterViewInit, OnInit {
     })
   }
 
- async submitPatientForm() {
-   //console.log(JSON.stringify(this.patientInfoForm.value));
-    let patient:Patient= new Patient();
-    patient.firstName=this.patientInfoForm.controls['firstName'].value;
-    patient.lastName=this.patientInfoForm.controls['lastName'].value;
-    patient.gender=this.patientInfoForm.controls['gender'].value;
-    patient.dateOfBirth=this.patientInfoForm.controls['dateOfBirth'].value;
-    patient.mobileNo=this.patientInfoForm.controls['mobile'].value;
-    patient.address=this.patientInfoForm.controls['address'].value;
-    patient.Image=this.imageBase64;
-    console.log("Pateint Data submitted: ",JSON.stringify(patient));
+  async submitPatientForm() {
+    //console.log(JSON.stringify(this.patientInfoForm.value));
+    let patient: Patient = new Patient();
+    patient.firstName = this.patientInfoForm.controls['firstName'].value;
+    patient.lastName = this.patientInfoForm.controls['lastName'].value;
+    patient.gender = this.patientInfoForm.controls['gender'].value;
+    patient.dateOfBirth = this.patientInfoForm.controls['dateOfBirth'].value;
+    patient.mobileNo = this.patientInfoForm.controls['mobile'].value;
+    patient.address = this.patientInfoForm.controls['address'].value;
+    patient.Image = this.imageBase64;
+    console.log("Pateint Data submitted: ", JSON.stringify(patient));
     this.patientRepo.addPatient(patient);
   }
 

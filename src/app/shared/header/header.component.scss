@@ -1,0 +1,11 @@
+.ion-color-hover:hover {
+    --background: #caf0f9;
+    color: black;
+}
+
+.ion-active {
+    background-color: #caf0f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #3498db; 
+  }
+  

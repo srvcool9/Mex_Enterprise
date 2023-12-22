@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openFirstMenu()" [ngClass]="{'ion-active': activeButton === 'home'}">
+        Home
+      </ion-button>
+      <ion-button (click)="Camera()" [ngClass]="{'ion-active': activeButton === 'camera'}">
+        Camera
+      </ion-button>
+      <ion-button (click)="patientHistory()" [ngClass]="{'ion-active': activeButton === 'history'}">
+        Patient History
+      </ion-button>
+      <ion-button (click)="openSettings()" [ngClass]="{'ion-active': activeButton === 'settings'}">
+        Settings
+      </ion-button>
+      <ion-button (click)="logout()" [ngClass]="{'ion-active': activeButton === 'logout'}">
+        Logout
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
