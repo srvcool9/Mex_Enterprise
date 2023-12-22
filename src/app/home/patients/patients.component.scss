@@ -6,7 +6,7 @@
 .header-row {
     position: sticky;
     top: 0;
-    color: #007BFF;
+    color: black;
     font-weight: bold;
     z-index: 2;
 }
@@ -26,11 +26,11 @@ ion-label {
 }
 
 .pat-title {
-    text-transform: uppercase;
+    //text-transform: uppercase;
     font-weight: 600;
 }
 
 .uppercase {
-    text-transform: uppercase;
-    background-color: aliceblue;
+    //text-transform: uppercase;
+    background-color: #caf0f9;
 }

@@ -4,7 +4,15 @@
 <ion-content>
   <ion-card class="patient-history-card">
     <ion-card-header>
-      <ion-card-title class="pat-title">Patient History</ion-card-title>
+      <ion-row class="ion-align-items-center ion-justify-content-between">
+        <ion-col>
+          <ion-card-title class="pat-title">Patient History</ion-card-title>
+        </ion-col>
+        <ion-col size="4">
+          <ion-searchbar #searchBar [(ngModel)]="searchTerm" placeholder="Search" (input)="filterItems()" (ionClear)="clearSearch()"
+          ></ion-searchbar>
+        </ion-col>
+      </ion-row>
     </ion-card-header>
     <ion-card-content class="scrollable-content">
       <ion-list lines="full" class="table">
@@ -13,23 +21,25 @@
           <ion-label class="header uppercase">Patient Name</ion-label>
           <ion-label class="header uppercase">Gender</ion-label>
           <ion-label class="header uppercase">Date Of Birth</ion-label>
-          <ion-label class="header uppercase">Phone</ion-label>
+          <ion-label class="header uppercase">Phone No.</ion-label>
+          <ion-label class="header uppercase">Address</ion-label>
         </ion-item>
 
 
-        <ion-item class="data-row" *ngFor="let entry of patientHistoryDetails" style="font-size: 14px;">
-          <ion-label>{{ entry.PatientId }}</ion-label>
-          <ion-label>{{ entry.FirstName }}{{ entry.LastName }}</ion-label>
-          <ion-label>{{ entry.Gender }}</ion-label>
-          <ion-label>{{ entry.DateOfBirth }}</ion-label>
-          <ion-label>{{ entry.MobileNo }}</ion-label>
+        <ion-item class="data-row" *ngFor="let entry of filteredPatientHistoryDetails" style="font-size: 14px;">
+          <ion-label>{{ entry?.PatientId }}</ion-label>
+          <ion-label>{{ entry?.FirstName }} {{ entry?.LastName }}</ion-label>
+          <ion-label>{{ entry?.Gender }}</ion-label>
+          <ion-label>{{ entry?.DateOfBirth }}</ion-label>
+          <ion-label>{{ entry?.MobileNo }}</ion-label>
+          <ion-label>{{ entry?.Address }}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>
 
-<ion-footer style="position: fixed; bottom: 0; width: 100%;">
+<!-- <ion-footer style="position: fixed; bottom: 0; width: 100%;">
   <ion-toolbar class="ion-text-center">
     <div style="display: flex; justify-content: center;">
       <div>
@@ -43,4 +53,4 @@
       </div>
     </div>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

@@ -1,11 +1,11 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Images } from 'src/app/models/images.model';
 import { Patient } from 'src/app/models/patient.model';
 import { Imagerepository } from 'src/app/repositories/imagerepository';
 import { Patientrepository } from 'src/app/repositories/patientrepository';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
-
+import { IonSearchbar } from '@ionic/angular';
 
 @Component({
   selector: 'app-patients',
@@ -17,10 +17,13 @@ export class PatientsComponent implements OnInit {
   public patients: Patient[] = [];
   public images: Images[] = [];
   patientHistoryDetails = [];
+  searchTerm: string = '';
+  filteredPatientHistoryDetails = [];
+  @ViewChild('searchBar') searchbar: IonSearchbar;
 
   constructor(private patientRepo: Patientrepository, private imageRepo: Imagerepository,
     private router: Router, private dataSharing: DataSharingService) {
-
+   
   }
 
   ngOnInit() {
@@ -32,6 +35,7 @@ export class PatientsComponent implements OnInit {
     console.log("Fetching all patient data...")
     this.patients = await this.patientRepo.getPatients();
     this.patientHistoryDetails = this.patients;
+    this.filteredPatientHistoryDetails = [...this.patientHistoryDetails];
     console.log(">> Patient data: ", this.patients);
   }
 
@@ -49,6 +53,21 @@ export class PatientsComponent implements OnInit {
     this.router.navigate(['/home/patients']);
   }
 
+  filterItems() {
+
+    this.filteredPatientHistoryDetails = [...this.patientHistoryDetails].filter(entry => {
+      return (
+        entry?.PatientId.toString().toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        (entry?.FirstName + ' ' + entry?.LastName).toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    });
+    console.log(this.filteredPatientHistoryDetails)
+  }
+
+
+  clearSearch(){
+    this.filteredPatientHistoryDetails = [...this.patientHistoryDetails];
+  }
 }
 
 
