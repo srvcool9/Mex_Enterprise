@@ -1,62 +1,58 @@
 <app-header></app-header>
 
 
-<ion-content [fullscreen]="true" style="margin-bottom: 40px;">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Mex Enterprise</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-grid class="ion-text-center" style="margin-top: 10%;">
+<ion-content>
+  <ion-grid>
     <ion-row>
-      <ion-col size="4" (click)="openFirstMenu()">
-        <ion-card class="hover-card" style="height: 200px;">
-          <div class="icon-background icon-bg" style="background-color: #E7F5F3;">
-            <ion-icon name="home" class="centered-icon" style="font-size: 4em; color: #16A085;"></ion-icon>
-          </div>
-          <ion-card-content>
-            <ion-card-title class="card-title">Home</ion-card-title>
-          </ion-card-content>
+      <ion-col size="12" size-md="6">
+        <ion-card class="patient-details" style="width: 100%;">
+          <ion-card-header>
+            <ion-card-title>Add Patient Details</ion-card-title>
+          </ion-card-header>
+          <form [formGroup]="patientInfoForm">
+            <ion-card-content>
+              <ion-list lines="full">
+                <ion-item>
+                  <ion-label position="stacked" style="font-size: 14px;">Patient Name</ion-label>
+                  <ion-input type="text" placeholder="Enter First Name" style="font-size: 14px;"
+                    formControlName="firstName"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked" style="font-size: 14px;">Patient Name</ion-label>
+                  <ion-input type="text" placeholder="Enter Last Name" style="font-size: 14px;"
+                    formControlName="lastName"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked" style="font-size: 14px;">Gender</ion-label>
+                  <ion-select placeholder="Select Gender" formControlName="gender" style="font-size: 14px;">
+                    <ion-select-option value="male" style="font-size: 14px;" label="Male">Male</ion-select-option>
+                    <ion-select-option value="female" style="font-size: 14px;" label="Female">Female</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked" style="font-size: 14px;">Date Of Birth </ion-label>
+                  <ion-input type="date" placeholder="Enter dob" style="font-size: 14px;"
+                    formControlName="dateOfBirth"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked" style="font-size: 14px;">Mobile</ion-label>
+                  <ion-input type="tel" placeholder="Enter Mobile" formControlName="mobile" style="font-size: 14px;"
+                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked" style="font-size: 14px;">Address</ion-label>
+                  <ion-textarea rows="3" placeholder="Enter Address" formControlName="address"
+                    style="font-size: 14px;"></ion-textarea>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </form>
+          <ion-button expand="full" (click)="submitPatientForm()">Save</ion-button>
         </ion-card>
       </ion-col>
-      <ion-col size="4" (click)="Camera()">
-        <ion-card class="hover-card" style="height: 200px;">
-          <div class="icon-background icon-bg" style="background-color: #FBE7E9;">
-            <ion-icon name="camera" class="centered-icon" style="font-size: 4em; color: #D50F25;"></ion-icon>
-          </div>
-          <ion-card-content>
-            <ion-card-title class="card-title">Camera</ion-card-title>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="4" (click)="patientHistory()">
-        <ion-card class="hover-card" style="height: 200px;">
-          <div class="icon-background icon-bg" style="background-color: #EAF0FD;">
-            <ion-icon name="document" class="centered-icon" style="font-size: 4em; color: #3369E8;"></ion-icon>
-          </div>
-          <ion-card-content>
-            <ion-card-title class="card-title">Patient History</ion-card-title>
-          </ion-card-content>
-        </ion-card>
+      <ion-col size="12" size-md="6">
+        <ion-img src="../../assets/images/mex2.jpg" style="width: 100%;"></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-
-
-<ion-footer style="position: fixed; bottom: 0; width: 100%;">
-  <ion-toolbar class="ion-text-center">
-    <div style="display: flex;justify-content: center;">
-      <div>
-        <small><strong style="color:blue">MEX ENTERPRISE</strong></small>&nbsp;
-      </div>
-      <div>
-        <small><strong> | EMAIL :</strong> info@company.com |</small>&nbsp;
-      </div>
-      <div>
-        <small><strong> PHONE: </strong> +123-456-7890 </small>
-      </div>
-    </div>
-  </ion-toolbar>
-</ion-footer>
