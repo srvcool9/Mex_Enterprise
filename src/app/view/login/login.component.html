@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mex Enterprise</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="12" size-md="6">
+        <img src="../../../assets/images/doc.jpg" style="width: 100%; height: 100%;" />
+      </ion-col>
+
+
+      <ion-col size="12" size-md="6">
+        <ion-card style="height: 80vh; overflow-y: auto;">
+          <ion-card-header>
+            <ion-card-title style="font-weight: bold;text-align: center; margin-top: 60px;">Login</ion-card-title>
+          </ion-card-header>
+          <form [formGroup]="loginForm">
+            <ion-card-content>
+
+              <ion-item style="margin-bottom: 10px;">
+                <ion-label position="floating">Username</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+
+
+              <ion-item style="margin-bottom: 10px;">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password"></ion-input>
+              </ion-item>
+
+
+              <div style="display: flex; justify-content: center; margin-top: 50px;">
+                <ion-button expand="full" (click)="login()">Login</ion-button>
+              </div>
+            </ion-card-content>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
