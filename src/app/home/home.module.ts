@@ -10,6 +10,7 @@ import { PatientsComponent } from './patients/patients.component';
 import { CameraComponent } from './camera/camera.component';
 import { Imagerepository } from '../repositories/imagerepository';
 import { HeaderComponent } from '../shared/header/header.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -21,7 +22,7 @@ import { HeaderComponent } from '../shared/header/header.component';
     ReactiveFormsModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, PatientsComponent, CameraComponent, HeaderComponent],
+  declarations: [HomePage, PatientsComponent, CameraComponent, HeaderComponent,SettingsComponent],
   providers: [Patientrepository,Imagerepository]
 })
 export class HomePageModule { }

@@ -5,7 +5,6 @@ import { Patient } from 'src/app/models/patient.model';
 import { Imagerepository } from 'src/app/repositories/imagerepository';
 import { Patientrepository } from 'src/app/repositories/patientrepository';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
-import { IonSearchbar } from '@ionic/angular';
 
 @Component({
   selector: 'app-patients',
@@ -19,7 +18,6 @@ export class PatientsComponent implements OnInit {
   patientHistoryDetails = [];
   searchTerm: string = '';
   filteredPatientHistoryDetails = [];
-  @ViewChild('searchBar') searchbar: IonSearchbar;
 
   constructor(private patientRepo: Patientrepository, private imageRepo: Imagerepository,
     private router: Router, private dataSharing: DataSharingService) {

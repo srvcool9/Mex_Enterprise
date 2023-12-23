@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openSettings() {
+    this.router.navigate(['/home/settings']);
     this.activeButton = 'settings';
   }
 

@@ -1,0 +1,106 @@
+<app-header></app-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card class="patient-details" style="width: 100%;">
+          <ion-card-header>
+            <ion-card-title class="pat-title">Update Profile</ion-card-title>
+          </ion-card-header>
+          <form [formGroup]="patientInfoForm">
+            <ion-card-content>
+              <ion-list lines="full">
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="stacked" style="font-size: 14px;">Patient First Name</ion-label>
+                      <ion-input type="text" placeholder="Enter First Name" style="font-size: 14px;"
+                        formControlName="firstName"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="stacked" style="font-size: 14px;">Patient Last Name</ion-label>
+                      <ion-input type="text" placeholder="Enter Last Name" style="font-size: 14px;"
+                        formControlName="lastName"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="stacked" style="font-size: 14px;">Doctor Name</ion-label>
+                      <ion-input type="text" placeholder="Enter Doctor Name" style="font-size: 14px;"
+                        formControlName="doctorName"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="stacked" style="font-size: 14px;">Mobile Number</ion-label>
+                      <ion-input type="tel" placeholder="Enter Mobile Number" formControlName="mobile"
+                        style="font-size: 14px;"
+                        onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="stacked" style="font-size: 14px;">Address</ion-label>
+                      <ion-textarea rows="3" placeholder="Enter Address" formControlName="address"
+                        style="font-size: 14px;"></ion-textarea>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="stacked" style="font-size: 14px;">Registration</ion-label>
+                      <ion-textarea rows="3" placeholder="Enter Registration" formControlName="registration"
+                        style="font-size: 14px;"></ion-textarea>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="stacked" style="font-size: 14px;">User Name</ion-label>
+                      <ion-input type="text" placeholder="Enter Username" formControlName="username"
+                        style="font-size: 14px;"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="stacked" style="font-size: 14px;">Password</ion-label>
+                      <ion-input type="text" placeholder="Enter Password" formControlName="password"
+                        style="font-size: 14px;"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col size="12">
+                  <ion-item>
+                    <ion-label position="stacked" style="font-size: 14px;">MAC ID</ion-label>
+                    <ion-input type="text" placeholder="Enter MAC ID" formControlName="macID"
+                      style="font-size: 14px;"></ion-input>
+                  </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-card-content>
+          </form>
+          <div style="display: flex; justify-content: flex-end;margin-bottom: 10px;">
+            <ion-button (click)="cancel()" color="danger">Cancel</ion-button>
+            <ion-button (click)="submitPatientForm()" style="margin-right: 5px;">Update</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <img src="../../../assets/images/mex221.jpg" style="height: 80%;width: 100%;"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

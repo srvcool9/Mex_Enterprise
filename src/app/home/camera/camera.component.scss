@@ -1,51 +1,72 @@
 .uppercase {
-    text-transform: uppercase;
-    color:#007BFF;
+  text-transform: uppercase;
+  color: #007BFF;
 }
 
 .capture-button {
-    position: absolute;
-    bottom: 10px;
-    left: 25%;
-    transform: translateX(-50%);
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .capture-video {
-    position: absolute;
-    bottom: 10px;
-    left: 25%;
-    transform: translateX(-50%);
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .capture-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .video-form-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Adjust this based on your desired alignment */
-  }
-  
-  .video-container {
-    flex: 1;
-    margin-right: 10px; /* Adjust the margin to create space between video and form */
-  }
-  
-  .form-container {
-    flex: 1;
-  }
-  
+  position: absolute;
+  bottom: 10px;
+  left: 25%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.capture-video {
+  position: absolute;
+  bottom: 10px;
+  left: 25%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.capture-button:hover {
+  background-color: #0056b3;
+}
+
+.video-form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* Adjust this based on your desired alignment */
+}
+
+
+.form-container {
+  flex: 1;
+}
+
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.canvas-row {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.pat-title {
+  font-weight: 600;
+}
