@@ -9,7 +9,6 @@ import { MigrationService } from './services/migration.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private migrateService:MigrationService) {
-  
+  constructor(private migrateService:MigrationService,private sqlite:SqliteService) {
   }
 }

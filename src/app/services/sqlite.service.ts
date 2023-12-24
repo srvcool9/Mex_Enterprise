@@ -545,9 +545,9 @@ async deleteOldDatabases(folderPath?: string, dbNameList?: string[]): Promise<vo
  * @returns
  */
 async moveDatabasesAndAddSuffix(folderPath?: string, dbNameList?: string[]): Promise<void>{
-    if(!this.native) {
-      return Promise.reject(new Error(`Not implemented for ${this.platform} platform`));
-    }
+    // if(!this.native) {
+    //   return Promise.reject(new Error(`Not implemented for ${this.platform} platform`));
+    // }
     if(this.sqlite != null) {
         const path: string = folderPath ? folderPath : "default";
         const dbList: string[] = dbNameList ? dbNameList : [];

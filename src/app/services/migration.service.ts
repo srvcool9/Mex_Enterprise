@@ -36,6 +36,10 @@ export class MigrationService {
     this.createAllDBTables();
    }
 
+   saveDatabaseLocally():Promise<any>{
+    return this.sqlite.saveToLocalDisk("DrCam");
+   }
+
   async createAllDBTables(): Promise<any> {
     try{
     console.log(`going to create a connection`)
@@ -50,6 +54,12 @@ export class MigrationService {
    console.log(`Inserting dummy data into database....`)
    const resI0:any = await this.db.run("INSERT INTO patients (FirstName,LastName,Gender,DateOfBirth,MobileNo,Address) VALUES ('Samarth','Trivedi','Male','28-08-1996','9575455117','Bhopal');",[],true,'no');
    console.log(`>>> Inserted dummy patient data...: ${JSON.stringify(resI0)}`)
+   console.log(`>>> All Db...: ${JSON.stringify(this.sqlite.getDatabaseList())}`)
+   let path:string="D:\\Mex_Enterprise"
+   let Db:string[]=[];
+   Db.push("DrCam.db")
+   console.log(this.sqlite.isConnection("DrCam.db",true));
+
     }catch (error) {
       throw Error(`DatabaseServiceError: ${error}`);
     }
